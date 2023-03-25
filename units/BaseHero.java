@@ -1,4 +1,3 @@
-//дальность(3-5), меткость(рандом: 0 - мимо, 1 - попал*),
 package IWantToPlayAGame.units;
 
 import java.util.Random;

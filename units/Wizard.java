@@ -2,16 +2,17 @@ package IWantToPlayAGame.units;
 
 import java.util.Random;
 
-public class Wizard extends BaseHero {
+public abstract class Wizard extends BaseHero {
     int magic, maxMagic, trick, heal, power;
 
-    public Wizard(String name, int x, int y) {
-        super(100, name, x, y, 20, new Random(), 
-        new int[] {1, 8}, new Random(), new int[] {1, 2, 3, 4, 5, 6, 7, 8});
-        magic = 100;
-        maxMagic = 100;
-        trick = 1;
-        heal = 10;
-        power = 5;
+    public Wizard(float hp, String name, int x, int y, int attack, Random defeat, int[] damage, Random accuracy,
+            int[] distance, int magic, int maxMagic, int trick, int heal, int power) {
+
+        super(hp, name, x, y, attack, defeat, damage, accuracy, distance);
+        this.magic = magic;
+        this.maxMagic = maxMagic;
+        this.trick = trick;
+        this.heal = heal;
+        this.power = power;
     }
 }

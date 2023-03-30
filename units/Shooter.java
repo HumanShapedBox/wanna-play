@@ -19,5 +19,10 @@ public abstract class Shooter extends BaseHero {
     protected void shoot(){
         System.out.println("Shoot!");
     }
+
+    @Override
+    public void step(){
+        System.out.println("Shooter");
+    }
     
 }

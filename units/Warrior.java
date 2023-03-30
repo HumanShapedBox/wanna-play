@@ -2,7 +2,7 @@ package IWantToPlayAGame.units;
 
 import java.util.Random;
 
-public class Warrior extends BaseHero{
+public abstract class Warrior extends BaseHero{
 
     int combo;
 

@@ -10,5 +10,11 @@ public class Crossbow extends Shooter {
                 new Random(), new int[] { 3, 4, 5 }, 10, 10, 0);
 
     }
+
+
+    @Override
+    public String getInfo() {
+        return "Crossbow";
+    }
     
 }

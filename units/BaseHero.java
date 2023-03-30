@@ -2,13 +2,13 @@ package IWantToPlayAGame.units;
 
 import java.util.Random;
 
-public class BaseHero {
+public abstract class BaseHero implements GameInterface {
     
     float hp, maxHp;
-    String name;
+    public String name;
     int x, y;
     int attack;
-    int defeat;
+    public int defeat;
     int[] damage;
     int accuracy;
     int[] distance;
@@ -26,4 +26,9 @@ public class BaseHero {
         this.distance = distance;
     }
     
+    @Override
+    public void step() {}
+
+    // @Override
+    // public String getInfo() {return null;}
 }

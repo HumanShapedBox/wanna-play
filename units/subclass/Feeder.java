@@ -1,6 +1,8 @@
-package IWantToPlayAGame.units;
+package IWantToPlayAGame.units.subclass;
 
 import java.util.Random;
+
+import IWantToPlayAGame.units.Peasant;
 
 public class Feeder extends Peasant{
 
@@ -13,8 +15,7 @@ public class Feeder extends Peasant{
 
     @Override
     public String getInfo() {
-        String info = "Feeder";
-        return info;
+        return name + " - Крестьянин";
     }
     
 }

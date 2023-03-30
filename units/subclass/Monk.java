@@ -1,6 +1,8 @@
-package IWantToPlayAGame.units;
+package IWantToPlayAGame.units.subclass;
 
 import java.util.Random;
+
+import IWantToPlayAGame.units.Wizard;
 
 public class Monk extends Wizard {
 
@@ -15,7 +17,7 @@ public class Monk extends Wizard {
 
     @Override
     public String getInfo() {
-        return "Monk";
+        return name + " - Монах";
     }
 
 }

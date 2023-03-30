@@ -28,7 +28,4 @@ public abstract class BaseHero implements GameInterface {
     
     @Override
     public void step() {}
-
-    // @Override
-    // public String getInfo() {return null;}
 }

@@ -1,6 +1,8 @@
-package IWantToPlayAGame.units;
+package IWantToPlayAGame.units.subclass;
 
 import java.util.Random;
+
+import IWantToPlayAGame.units.Wizard;
 
 public class Warlock extends Wizard {
 
@@ -14,7 +16,7 @@ public class Warlock extends Wizard {
 
     @Override
     public String getInfo() {
-        return "Warlock";
+        return name + " - Маг";
     }
 
 }

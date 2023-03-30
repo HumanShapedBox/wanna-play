@@ -1,6 +1,8 @@
-package IWantToPlayAGame.units;
+package IWantToPlayAGame.units.subclass;
 
 import java.util.Random;
+
+import IWantToPlayAGame.units.Warrior;
 
 public class Thug extends Warrior{
 
@@ -13,7 +15,7 @@ public class Thug extends Warrior{
 
     @Override
     public String getInfo() {
-        return "Thug";
+        return name + " - Бандит";
     }
     
 }

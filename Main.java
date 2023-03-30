@@ -49,18 +49,18 @@ public class Main {
 
     private static ArrayList<BaseHero> randomBad(ArrayList<BaseHero> bad) {
         for (int i = 0; i <= 10; i++) {
-            switch (new Random().nextInt(10)) {
+            switch (new Random().nextInt(4)) {
                 case 0:
                     bad.add(new Crossbow(getName(), new Random().nextInt(4) + 5, new Random().nextInt(4) + 5));
                     break;
                 case 1:
-                    bad.add(new Feeder(getName(), new Random().nextInt(4) + 5, new Random().nextInt(4) + 5));
+                    bad.add(new Thug(getName(), new Random().nextInt(4) + 5, new Random().nextInt(4) + 5));
                     break;
                 case 2:
                     bad.add(new Warlock(getName(), new Random().nextInt(4) + 5, new Random().nextInt(4) + 5));
                     break;
                 default:
-                    bad.add(new Thug(getName(), new Random().nextInt(4) + 5, new Random().nextInt(4) + 5));
+                    bad.add(new Feeder(getName(), new Random().nextInt(4) + 5, new Random().nextInt(4) + 5));
                     break;
             }
         }
@@ -69,18 +69,18 @@ public class Main {
 
     private static ArrayList<BaseHero> randomGood(ArrayList<BaseHero> good) {
         for (int i = 0; i <= 10; i++) {
-            switch (new Random().nextInt(10)) {
+            switch (new Random().nextInt(4)) {
                 case 0:
                     good.add(new Archer(getName(), new Random().nextInt(4) + 1, new Random().nextInt(4) + 1));
                     break;
                 case 1:
-                    good.add(new Feeder(getName(), new Random().nextInt(4) + 1, new Random().nextInt(4) + 1));
+                    good.add(new Knight(getName(), new Random().nextInt(4) + 1, new Random().nextInt(4) + 1));
                     break;
                 case 2:
                     good.add(new Monk(getName(), new Random().nextInt(4) + 1, new Random().nextInt(4) + 1));
                     break;
                 default:
-                    good.add(new Knight(getName(), new Random().nextInt(4) + 1, new Random().nextInt(4) + 1));
+                    good.add(new Feeder(getName(), new Random().nextInt(4) + 1, new Random().nextInt(4) + 1));
                     break;
             }
         }

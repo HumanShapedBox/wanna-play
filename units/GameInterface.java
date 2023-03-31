@@ -1,7 +1,9 @@
 package IWantToPlayAGame.units;
 
+import java.util.ArrayList;
+
 public interface GameInterface {
     
-    void step();
+    void step(ArrayList<BaseHero> enemy);
     String getInfo();
 }

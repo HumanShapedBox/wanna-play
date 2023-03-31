@@ -1,24 +1,26 @@
 package IWantToPlayAGame.units;
 
+import java.util.ArrayList;
 import java.util.Random;
+
+import IWantToPlayAGame.methods.Position;
 
 public abstract class BaseHero implements GameInterface {
     
-    float hp, maxHp;
-    public String name;
-    int x, y;
-    int attack;
-    public int defeat;
-    int[] damage;
-    int accuracy;
-    int[] distance;
+    protected float hp, maxHp;
+    protected final String name;
+    protected Position position;
+    protected int attack;
+    protected int defeat;
+    protected int[] damage;
+    protected int accuracy;
+    protected int[] distance;
 
-    public BaseHero(float hp, String name, int x, int y, int attack, 
+    public BaseHero(float hp, String name, Position position, int x, int y, int attack, 
                     Random defeat, int[] damage, Random accuracy, int[] distance){
         this.hp = this.maxHp = hp;
         this.name = name;
-        this.x = x;
-        this.y = y;
+        this.position = new Position(x, y);
         this.attack = attack;
         this.defeat = new Random().nextInt(2);
         this.damage = damage;
@@ -27,5 +29,5 @@ public abstract class BaseHero implements GameInterface {
     }
     
     @Override
-    public void step() {}
+    public void step(ArrayList<BaseHero> enemy) {}
 }

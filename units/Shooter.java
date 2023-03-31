@@ -27,16 +27,10 @@ public abstract class Shooter extends BaseHero {
         if ((arrows == 0) || (hp <= 0)){
             return;
         }
-        // double minDist = position.distance(enemy.get(0).position);
-        // int enemyPosition = 0;
-        // for (int i = 1; i < enemy.size(); i++){
-        //     double dist = position.distance(enemy.get(i).position);
-        //     if (dist < minDist){
-        //         minDist = dist;
-        //         enemyPosition = i;
-        //     }
-        
-        // }
+
+        Position target = new Position(0, 0);
+        target.findTarget(enemy);
+
         System.out.println("Shooter");
     }
     

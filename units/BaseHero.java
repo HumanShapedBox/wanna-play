@@ -9,7 +9,8 @@ public abstract class BaseHero implements GameInterface {
     
     protected float hp, maxHp;
     protected final String name;
-    protected Position position;
+    public Position position;
+    public int x, y;
     protected int attack;
     protected int defeat;
     protected int[] damage;

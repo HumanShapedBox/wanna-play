@@ -10,9 +10,9 @@ public abstract class Shooter extends BaseHero{
     int poisonedArrow;
 
     public Shooter(float hp, String name, Position position, int x, int y, int attack, Random defeat, int[] damage, Random accuracy,
-            int[] distance, int arrows, int maxArrows, int poisonedArrow) {
+            int speed, int arrows, int maxArrows, int poisonedArrow) {
 
-        super(hp, name, position, x, y, attack, defeat, damage, accuracy, distance);
+        super(hp, name, position, x, y, attack, defeat, damage, accuracy, speed);
         this.arrows = arrows;
         this.maxArrows = maxArrows;
         this.poisonedArrow = poisonedArrow;

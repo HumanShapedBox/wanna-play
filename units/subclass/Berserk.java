@@ -10,7 +10,7 @@ public class Berserk extends Peasant{
     public Berserk(String name, int x, int y) {
 
         super(100, name, new Position(x, y), x, y, 5, new Random(), new int[] { 1, 8 },
-                new Random(), new int[] { 1, 2 }, 0, 0, true);
+                new Random(), 5, 0, 0, true);
 
     }
     

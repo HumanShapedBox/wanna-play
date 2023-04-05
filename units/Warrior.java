@@ -9,9 +9,9 @@ public abstract class Warrior extends BaseHero{
     int combo;
 
     public Warrior(float hp, String name, Position position, int x, int y, int attack, Random defeat, int[] damage, Random accuracy,
-            int[] distance, int combo) {
+            int speed, int combo) {
     
-        super(hp, name, position, x, y, attack, defeat, damage, accuracy, distance);
+        super(hp, name, position, x, y, attack, defeat, damage, accuracy, speed);
         
         this.combo = combo;
     }

@@ -23,19 +23,19 @@ public abstract class Shooter extends BaseHero{
     }
 
     @Override
-    public void step(ArrayList<BaseHero> enemy){
+    public void step(BaseHero attacker, ArrayList<BaseHero> enemy){
         if ((arrows == 0) || (hp <= 0)){
             return;
         }
-        String nameTarget = "";
+        String nameTarget = "gg";
         Position target = new Position(0, 0);
-        target.findTarget(enemy);
+        target = target.findTarget(enemy);
         for(int i = 0; i < enemy.size(); i++){
-            if (position == target){
-                nameTarget = target.nameTarget(enemy);
+            if (enemy.get(i).position == target){
+               nameTarget = enemy.get(i).name;
             }
-            System.out.println(nameTarget);
         }
+        System.out.println(attacker.name + " нападает на " + nameTarget);
     }
     
 }

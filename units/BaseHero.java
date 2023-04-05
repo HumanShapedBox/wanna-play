@@ -30,5 +30,5 @@ public abstract class BaseHero implements GameInterface {
     }
     
     @Override
-    public void step(ArrayList<BaseHero> enemy) {}
+    public void step(BaseHero attacker, ArrayList<BaseHero> enemy) {}
 }

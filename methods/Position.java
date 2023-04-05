@@ -24,7 +24,7 @@ public class Position {
             targets.add(enemy.get(i).position);
         }
         
-        Position findTarget = new Position(enemy.get(0).x, enemy.get(0).y);
+        Position findTarget = new Position(targets.get(0).x, targets.get(0).y);
         double minDist = distance(targets.get(0));
         for (int i = 1; i < targets.size(); i++){
             double dist = distance(targets.get(i));
@@ -34,16 +34,5 @@ public class Position {
             }
         }
         return findTarget;
-    }
-
-    public String nameTarget(ArrayList<BaseHero> enemy){
-        String targetName = "";
-        Position target = findTarget(enemy);
-        for(int i = 0; i < enemy.size(); i++){
-            if (enemy.get(i).position == target){
-               targetName = enemy.get(i).name;
-            }
-        }
-        return targetName;
     }
 }

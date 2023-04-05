@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import IWantToPlayAGame.methods.Position;
 
-public abstract class Shooter extends BaseHero {
+public abstract class Shooter extends BaseHero{
 
     int arrows, maxArrows;
     int poisonedArrow;
@@ -27,11 +27,15 @@ public abstract class Shooter extends BaseHero {
         if ((arrows == 0) || (hp <= 0)){
             return;
         }
-
+        String nameTarget = "";
         Position target = new Position(0, 0);
         target.findTarget(enemy);
-
-        System.out.println("Shooter");
+        for(int i = 0; i < enemy.size(); i++){
+            if (position == target){
+                nameTarget = target.nameTarget(enemy);
+            }
+            System.out.println(nameTarget);
+        }
     }
     
 }

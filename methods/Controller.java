@@ -2,8 +2,8 @@ package IWantToPlayAGame.methods;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
+import IWantToPlayAGame.Main;
 import IWantToPlayAGame.Names;
 import IWantToPlayAGame.units.BaseHero;
 import IWantToPlayAGame.units.subclass.Archer;
@@ -15,12 +15,12 @@ import IWantToPlayAGame.units.subclass.Thug;
 import IWantToPlayAGame.units.subclass.Warlock;
 
 public class Controller {
-    static Scanner sc = new Scanner(System.in);
+    
     public static void chooseYourFighter(ArrayList<BaseHero> good, ArrayList<BaseHero> bad) {
         System.out.println("Введите '1' для случайной генерации персонажей\n"
                 + "Введите '2' для получения основного состава игроков");
-        // + "Введите '3' для самостоятельного формирования команды");
-        int comand = sc.nextInt();
+        
+        int comand = Main.sc.nextInt();
         if (comand == 1) {
             randomGood(good);
             randomBad(bad);

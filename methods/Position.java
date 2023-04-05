@@ -35,4 +35,15 @@ public class Position {
         }
         return findTarget;
     }
+
+    public String nameTarget(ArrayList<BaseHero> enemy){
+        String targetName = "";
+        Position target = findTarget(enemy);
+        for(int i = 0; i < enemy.size(); i++){
+            if (enemy.get(i).position == target){
+               targetName = enemy.get(i).name;
+            }
+        }
+        return targetName;
+    }
 }

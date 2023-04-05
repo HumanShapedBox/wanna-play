@@ -8,7 +8,7 @@ import IWantToPlayAGame.methods.Position;
 public abstract class BaseHero implements GameInterface {
     
     protected float hp, maxHp;
-    protected final String name;
+    public final String name;
     public Position position;
     public int x, y;
     protected int attack;

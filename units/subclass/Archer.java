@@ -26,4 +26,5 @@ public class Archer extends Shooter{
     //     System.out.println("Shooter!");
     // }
     
+    
 }

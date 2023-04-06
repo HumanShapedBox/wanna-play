@@ -1,6 +1,8 @@
 package IWantToPlayAGame.methods;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 
 import IWantToPlayAGame.Main;
@@ -106,4 +108,33 @@ public class Controller {
         System.out.println("*****");
     }
 
+    public static ArrayList<BaseHero> unitSpeedSort(ArrayList<BaseHero> friend, ArrayList<BaseHero> foe) {
+        ArrayList<BaseHero> sortedList = new ArrayList<>();
+        sortedList.addAll(friend);
+        sortedList.addAll(foe);
+        Collections.sort(
+                sortedList,
+                new Comparator<BaseHero>() {
+                    public int compare(BaseHero t0, BaseHero t1) {
+                        if (t0.speed > t1.speed)
+                            return -1;
+                        if (t0.speed < t1.speed)
+                            return 1;
+                        if(t0.speed == t1.speed){
+                            return (int)t1.hp - (int)t0.hp;
+                        }
+                        return 0;
+                    }
+                });
+        return sortedList;
+    }
+    
+    public static ArrayList<BaseHero> getHit(Position target, int damage, int accuracy, ArrayList<BaseHero> enemy){
+        for (int i = 0; i < enemy.size(); i++){
+            if (target == enemy.get(i).position && accuracy != 0 ){
+                enemy.get(i).hp -= damage; 
+            }
+        }
+        return enemy;
+    }
 }

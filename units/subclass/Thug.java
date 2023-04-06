@@ -16,7 +16,7 @@ public class Thug extends Warrior{
 
     @Override
     public String getInfo() {
-        return name + " - Бандит";
+        return name + " - Бандит. Здоровье: " + (int)hp;
     }
     
 }

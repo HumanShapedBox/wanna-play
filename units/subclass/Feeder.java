@@ -16,7 +16,7 @@ public class Feeder extends Peasant{
 
     @Override
     public String getInfo() {
-        return name + " - Крестьянин";
+        return name + " - Крестьянин. Здоровье: " + (int)hp;
     }
     
 }

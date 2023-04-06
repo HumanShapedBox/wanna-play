@@ -17,7 +17,7 @@ public class Crossbow extends Shooter {
 
     @Override
     public String getInfo() {
-        return name + " - Арбалетчик";
+        return name + " - Арбалетчик. Здоровье: " + (int)hp;
     }
     
 }

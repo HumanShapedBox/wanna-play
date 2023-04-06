@@ -7,7 +7,7 @@ import IWantToPlayAGame.methods.Position;
 
 public abstract class BaseHero implements GameInterface {
     
-    protected float hp, maxHp;
+    public float hp, maxHp;
     public final String name;
     public Position position;
     public int x, y;
@@ -15,7 +15,7 @@ public abstract class BaseHero implements GameInterface {
     protected int defeat;
     protected int[] damage;
     protected int accuracy;
-    protected int speed;;
+    public int speed;
 
     public BaseHero(float hp, String name, Position position, int x, int y, int attack, 
                     Random defeat, int[] damage, Random accuracy, int speed){
@@ -28,7 +28,8 @@ public abstract class BaseHero implements GameInterface {
         this.accuracy = new Random().nextInt(2);
         this.speed = speed;
     }
-    
+
     @Override
     public void step(BaseHero attacker, ArrayList<BaseHero> enemy) {}
+
 }

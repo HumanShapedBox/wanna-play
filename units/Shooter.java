@@ -2,6 +2,8 @@ package IWantToPlayAGame.units;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import IWantToPlayAGame.methods.Controller;
 import IWantToPlayAGame.methods.Position;
 
 public abstract class Shooter extends BaseHero{
@@ -27,15 +29,20 @@ public abstract class Shooter extends BaseHero{
         if ((arrows == 0) || (hp <= 0)){
             return;
         }
-        String nameTarget = "gg";
         Position target = new Position(0, 0);
         target = target.findTarget(enemy);
+        String nameTarget = "";
         for(int i = 0; i < enemy.size(); i++){
             if (enemy.get(i).position == target){
                nameTarget = enemy.get(i).name;
             }
         }
         System.out.println(attacker.name + " нападает на " + nameTarget);
+        if (this.accuracy == 0){
+            System.out.println(attacker.name + " промахнулся");
+        } else{
+            enemy = Controller.getHit(target, this.attack, this.accuracy, enemy);
+        }   
     }
     
 }

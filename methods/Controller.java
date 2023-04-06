@@ -108,10 +108,10 @@ public class Controller {
         System.out.println("*****");
     }
 
-    public static ArrayList<BaseHero> unitSpeedSort(ArrayList<BaseHero> friend, ArrayList<BaseHero> foe) {
+    public static ArrayList<BaseHero> unitSpeedSort(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {
         ArrayList<BaseHero> sortedList = new ArrayList<>();
-        sortedList.addAll(friend);
-        sortedList.addAll(foe);
+        sortedList.addAll(crew);
+        sortedList.addAll(enemy);
         Collections.sort(
                 sortedList,
                 new Comparator<BaseHero>() {

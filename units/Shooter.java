@@ -24,8 +24,18 @@ public abstract class Shooter extends BaseHero{
         System.out.println("Shoot!");
     }
 
+    private Boolean findFeeder(ArrayList<BaseHero> units){
+        Boolean flag = false;
+        for(int i = 0; i < units.size(); i++){
+            if(units.get(i).speed == 1 && units.get(i).state == "stand"){
+                flag = true;
+            }
+        }
+        return flag;
+    }  
+
     @Override
-    public void step(ArrayList<BaseHero> enemy){
+    public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
         if ((arrows == 0) || (hp <= 0)){
             return;
         }
@@ -38,11 +48,15 @@ public abstract class Shooter extends BaseHero{
             }
         }
         System.out.println(name + " нападает на " + nameTarget);
-        if (this.accuracy == 0){
-            System.out.println(name + " промахнулся");
+        if (this.accuracy != 0){
+            if(findFeeder(crew) == true){
+                enemy = Controller.getHit(target, this.attack, this.accuracy, enemy);
+            } else{
+                this.arrows -= 1;
+                enemy = Controller.getHit(target, this.attack, this.accuracy, enemy);
+            }
         } else{
-            this.arrows -= 1;
-            enemy = Controller.getHit(target, this.attack, this.accuracy, enemy);
+            System.out.println(name + " промахнулся");
         }   
     }
     

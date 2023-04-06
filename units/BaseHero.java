@@ -16,7 +16,7 @@ public abstract class BaseHero implements GameInterface {
     protected int[] damage;
     protected int accuracy;
     public int speed;
-    protected String state;
+    public String state;
 
     public BaseHero(float hp, String name, Position position, int x, int y, int attack, 
                     Random defeat, int[] damage, Random accuracy, int speed, String state){
@@ -32,6 +32,6 @@ public abstract class BaseHero implements GameInterface {
     }
 
     @Override
-    public void step(ArrayList<BaseHero> enemy) {}
+    public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {}
 
 }

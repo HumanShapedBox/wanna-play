@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import IWantToPlayAGame.methods.Controller;
 import IWantToPlayAGame.units.BaseHero;
-//import IWantToPlayAGame.units.subclass.Archer;
 
 public class Main {
 
@@ -22,9 +21,11 @@ public class Main {
         gang.forEach(n -> System.out.println(n.getInfo()));
         Controller.emptyLine();
         BaseHero attacker = Controller.attacker(gang);
-        attacker.step(homies);
+        attacker.step(gang, homies);
         Controller.emptyLine();
         homies.forEach(n -> System.out.println(n.getInfo()));
+        Controller.emptyLine();
+        gang.forEach(n -> System.out.println(n.getInfo()));
         // ArrayList<BaseHero> sortedList = new ArrayList<>();
         // sortedList.addAll(Controller.unitSpeedSort(homies, gang));
         // sortedList.forEach(n -> System.out.println(n.getInfo()));

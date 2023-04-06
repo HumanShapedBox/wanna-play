@@ -129,6 +129,24 @@ public class Controller {
         return sortedList;
     }
     
+    public static BaseHero attacker(ArrayList<BaseHero> units){
+        Collections.sort(
+                units,
+                new Comparator<BaseHero>() {
+                    public int compare(BaseHero t0, BaseHero t1) {
+                        if (t0.speed > t1.speed)
+                            return -1;
+                        if (t0.speed < t1.speed)
+                            return 1;
+                        if(t0.speed == t1.speed){
+                            return (int)t1.hp - (int)t0.hp;
+                        }
+                        return 0;
+                    }
+                });
+        return units.get(0);
+    }
+
     public static ArrayList<BaseHero> getHit(Position target, int damage, int accuracy, ArrayList<BaseHero> enemy){
         for (int i = 0; i < enemy.size(); i++){
             if (target == enemy.get(i).position && accuracy != 0 ){

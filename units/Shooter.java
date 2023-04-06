@@ -12,9 +12,9 @@ public abstract class Shooter extends BaseHero{
     int poisonedArrow;
 
     public Shooter(float hp, String name, Position position, int x, int y, int attack, Random defeat, int[] damage, Random accuracy,
-            int speed, int arrows, int maxArrows, int poisonedArrow) {
+            int speed, int arrows, int maxArrows, int poisonedArrow, String state) {
 
-        super(hp, name, position, x, y, attack, defeat, damage, accuracy, speed);
+        super(hp, name, position, x, y, attack, defeat, damage, accuracy, speed, state);
         this.arrows = arrows;
         this.maxArrows = maxArrows;
         this.poisonedArrow = poisonedArrow;
@@ -25,7 +25,7 @@ public abstract class Shooter extends BaseHero{
     }
 
     @Override
-    public void step(BaseHero attacker, ArrayList<BaseHero> enemy){
+    public void step(ArrayList<BaseHero> enemy){
         if ((arrows == 0) || (hp <= 0)){
             return;
         }
@@ -37,10 +37,11 @@ public abstract class Shooter extends BaseHero{
                nameTarget = enemy.get(i).name;
             }
         }
-        System.out.println(attacker.name + " нападает на " + nameTarget);
+        System.out.println(name + " нападает на " + nameTarget);
         if (this.accuracy == 0){
-            System.out.println(attacker.name + " промахнулся");
+            System.out.println(name + " промахнулся");
         } else{
+            this.arrows -= 1;
             enemy = Controller.getHit(target, this.attack, this.accuracy, enemy);
         }   
     }

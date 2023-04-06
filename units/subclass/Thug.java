@@ -10,8 +10,7 @@ public class Thug extends Warrior{
     public Thug(String name, int x, int y) {
 
         super(100, name, new Position(x, y), x, y, 15, new Random(), new int[] { 1, 8 },
-                new Random(), 3, 0);
-
+                new Random(), 3, 0, "stand");
     }
 
     @Override

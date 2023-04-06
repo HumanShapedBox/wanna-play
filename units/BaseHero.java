@@ -16,9 +16,10 @@ public abstract class BaseHero implements GameInterface {
     protected int[] damage;
     protected int accuracy;
     public int speed;
+    protected String state;
 
     public BaseHero(float hp, String name, Position position, int x, int y, int attack, 
-                    Random defeat, int[] damage, Random accuracy, int speed){
+                    Random defeat, int[] damage, Random accuracy, int speed, String state){
         this.hp = this.maxHp = hp;
         this.name = name;
         this.position = new Position(x, y);
@@ -27,9 +28,10 @@ public abstract class BaseHero implements GameInterface {
         this.damage = damage;
         this.accuracy = new Random().nextInt(2);
         this.speed = speed;
+        this.state = state;
     }
 
     @Override
-    public void step(BaseHero attacker, ArrayList<BaseHero> enemy) {}
+    public void step(ArrayList<BaseHero> enemy) {}
 
 }

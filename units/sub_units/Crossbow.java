@@ -1,8 +1,8 @@
-package IWantToPlayAGame.units.subclass;
+package IWantToPlayAGame.units.sub_units;
 
 import java.util.Random;
 
-import IWantToPlayAGame.methods.Position;
+import IWantToPlayAGame.units.Position;
 import IWantToPlayAGame.units.Shooter;
 
 public class Crossbow extends Shooter {

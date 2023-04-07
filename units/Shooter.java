@@ -3,10 +3,9 @@ package IWantToPlayAGame.units;
 import java.util.ArrayList;
 import java.util.Random;
 
-import IWantToPlayAGame.methods.Controller;
-import IWantToPlayAGame.methods.Position;
+import IWantToPlayAGame.units.sub_interfaces.Fight;
 
-public abstract class Shooter extends BaseHero{
+public abstract class Shooter extends BaseHero implements Fight{
 
     int arrows, maxArrows;
     int poisonedArrow;
@@ -35,29 +34,29 @@ public abstract class Shooter extends BaseHero{
     }  
 
     @Override
+    public BaseHero findTarget(ArrayList<BaseHero> enemy){
+        double dist = 1000.0f; 
+        BaseHero target = null;
+        for (int i = 0; i < enemy.size(); i++) {
+            if (enemy.get(i).position.distance(this.position) < dist) {
+                dist = enemy.get(i).position.distance(this.position);
+                target = enemy.get(i);
+            }
+        }
+        return target;
+    }
+
+    @Override
     public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
         if ((arrows == 0) || (hp <= 0)){
             return;
         }
-        Position target = new Position(0, 0);
-        target = target.findTarget(enemy);
-        String nameTarget = "";
-        for(int i = 0; i < enemy.size(); i++){
-            if (enemy.get(i).position == target){
-               nameTarget = enemy.get(i).name;
-            }
-        }
-        System.out.println(name + " нападает на " + nameTarget);
+        BaseHero target = findTarget(enemy);
+        System.out.println(name + " нападает на " + target.name);
         if (this.accuracy != 0){
-            if(findFeeder(crew) == true){
-                enemy = Controller.getHit(target, this.attack, this.accuracy, enemy);
-            } else{
-                this.arrows -= 1;
-                enemy = Controller.getHit(target, this.attack, this.accuracy, enemy);
-            }
-        } else{
-            System.out.println(name + " промахнулся");
-        }   
+            if(findFeeder(crew) == false) this.arrows -= 1;
+                target.hp -= attack; 
+            } else System.out.println(name + " промахнулся"); 
     }
     
 }

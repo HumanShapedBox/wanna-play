@@ -3,9 +3,7 @@ package IWantToPlayAGame.units;
 import java.util.ArrayList;
 import java.util.Random;
 
-import IWantToPlayAGame.methods.Position;
-
-public abstract class BaseHero implements GameInterface {
+public abstract class BaseHero implements GameInterface{
     
     public float hp, maxHp;
     public final String name;
@@ -30,6 +28,18 @@ public abstract class BaseHero implements GameInterface {
         this.speed = speed;
         this.state = state;
     }
+
+    // protected BaseHero findTarget(ArrayList<BaseHero> enemy) {
+    //     float dist = 1000.0f; // любое число большее диагонали поля.
+    //     BaseHero target = null;
+    //     for (int i = 0; i < enemy.size(); i++) {
+    //         if (enemy.get(i).position.distance(this.position) < dist) {
+    //             dist = enemy.get(i).position.distance(this.position);
+    //             target = enemy.get(i);
+    //         }
+    //     }
+    // }
+
 
     @Override
     public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {}

@@ -2,8 +2,6 @@ package IWantToPlayAGame.units;
 
 import java.util.Random;
 
-import IWantToPlayAGame.methods.Position;
-
 public abstract class Warrior extends BaseHero{
 
     int combo;

@@ -3,7 +3,6 @@ package IWantToPlayAGame;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import IWantToPlayAGame.methods.Controller;
 import IWantToPlayAGame.units.BaseHero;
 
 public class Main {
@@ -24,8 +23,8 @@ public class Main {
         attacker.step(gang, homies);
         Controller.emptyLine();
         homies.forEach(n -> System.out.println(n.getInfo()));
-        Controller.emptyLine();
-        gang.forEach(n -> System.out.println(n.getInfo()));
+        // Controller.emptyLine();
+        // gang.forEach(n -> System.out.println(n.getInfo()));
         // ArrayList<BaseHero> sortedList = new ArrayList<>();
         // sortedList.addAll(Controller.unitSpeedSort(homies, gang));
         // sortedList.forEach(n -> System.out.println(n.getInfo()));

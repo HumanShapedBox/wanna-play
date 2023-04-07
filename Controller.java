@@ -1,20 +1,19 @@
-package IWantToPlayAGame.methods;
+package IWantToPlayAGame;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
-import IWantToPlayAGame.Main;
-import IWantToPlayAGame.Names;
 import IWantToPlayAGame.units.BaseHero;
-import IWantToPlayAGame.units.subclass.Archer;
-import IWantToPlayAGame.units.subclass.Crossbow;
-import IWantToPlayAGame.units.subclass.Feeder;
-import IWantToPlayAGame.units.subclass.Knight;
-import IWantToPlayAGame.units.subclass.Monk;
-import IWantToPlayAGame.units.subclass.Thug;
-import IWantToPlayAGame.units.subclass.Warlock;
+import IWantToPlayAGame.units.Position;
+import IWantToPlayAGame.units.sub_units.Archer;
+import IWantToPlayAGame.units.sub_units.Crossbow;
+import IWantToPlayAGame.units.sub_units.Feeder;
+import IWantToPlayAGame.units.sub_units.Knight;
+import IWantToPlayAGame.units.sub_units.Monk;
+import IWantToPlayAGame.units.sub_units.Thug;
+import IWantToPlayAGame.units.sub_units.Warlock;
 
 public class Controller {
     

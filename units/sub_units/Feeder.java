@@ -1,9 +1,9 @@
-package IWantToPlayAGame.units.subclass;
+package IWantToPlayAGame.units.sub_units;
 
 import java.util.Random;
 
-import IWantToPlayAGame.methods.Position;
 import IWantToPlayAGame.units.Peasant;
+import IWantToPlayAGame.units.Position;
 
 public class Feeder extends Peasant{
 

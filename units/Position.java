@@ -9,7 +9,7 @@ public class Position {
         this.y = y;
     }
 
-    public double distance(Position defence) {
+    protected double distance(Position defence) {
         return Math.sqrt((defence.x - x) * (defence.x - x) + (defence.y - y) * (defence.y - y));
     }
 

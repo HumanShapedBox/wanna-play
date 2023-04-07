@@ -8,7 +8,7 @@ public abstract class BaseHero implements GameInterface{
     public float hp, maxHp;
     public final String name;
     protected Position position;
-    protected int x, y;
+    public int x, y;
     protected int attack;
     protected int defeat;
     protected int[] damage;
@@ -29,17 +29,17 @@ public abstract class BaseHero implements GameInterface{
         this.state = state;
     }
 
-    // protected BaseHero findTarget(ArrayList<BaseHero> enemy) {
-    //     float dist = 1000.0f; // любое число большее диагонали поля.
-    //     BaseHero target = null;
-    //     for (int i = 0; i < enemy.size(); i++) {
-    //         if (enemy.get(i).position.distance(this.position) < dist) {
-    //             dist = enemy.get(i).position.distance(this.position);
-    //             target = enemy.get(i);
-    //         }
-    //     }
+    // @Override
+    // public String toString() {
+    //     return name +
+    //             " H:" + Math.round(hp) +
+    //             " D:" + defense +
+    //             " A:" + attack +
+    //             " Dmg:" + Math.round(Math.abs((damageMin+damageMax)/2)) +
+    //             " " + state;
     // }
 
+    public int[] getCoords() {return new int[]{position.x, position.y};}
 
     @Override
     public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {}

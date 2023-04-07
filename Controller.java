@@ -16,30 +16,16 @@ import IWantToPlayAGame.units.sub_units.Warlock;
 
 public class Controller {
 
-    // public static void game(String[] args) {
-        
-    // }
+    public static void game(ArrayList<BaseHero> good, ArrayList<BaseHero> bad, ArrayList<BaseHero> sortedList) {
+        for (BaseHero human : sortedList) {
+            if (good.contains(human))
+                human.step(good, bad);
+            else
+                human.step(bad, good);
+        }
+    }
 
-    // public static ArrayList<BaseHero> getUnits(){
-    //     ArrayList<BaseHero> units = new ArrayList<>();
-    //     return units;
-    // }
-        
-        // BaseHero attacker = Controller.attacker(gang); // в контроллере сделай "некст мув" со счётчиком, а атакера унеси в приват и передавай муву
-        // attacker.step(gang, homies);
-        // Controller.emptyLine();
 
-        // homies.forEach(n -> System.out.println(n.getInfo()));
-        //Controller.emptyLine();
-        // gang.forEach(n -> System.out.println(n.getInfo()));
-        // attacker = Controller.attacker(homies);
-        // attacker.step(homies, gang);
-        // Controller.emptyLine();
-        // homies.forEach(n -> System.out.println(n.getInfo()));
-        // Controller.emptyLine();
-        // gang.forEach(n -> System.out.println(n.getInfo()));
-
-    
     public static void chooseYourFighter(ArrayList<BaseHero> good, ArrayList<BaseHero> bad) {
         System.out.println("Введите '1' для случайной генерации персонажей\n"
                 + "Введите '2' для получения основного состава игроков");
@@ -51,7 +37,7 @@ public class Controller {
         } else {
             homies(good);
             gang(bad);
-        }
+        }        
     }
 
     public static String getName(){
@@ -77,7 +63,6 @@ public class Controller {
         }
         return bad;
     }
-
 
     private static ArrayList<BaseHero> randomGood(ArrayList<BaseHero> good) {
         for (int i = 0; i <= 10; i++) {
@@ -125,10 +110,6 @@ public class Controller {
         good.add(new Feeder(getName(), 9, 1));
         good.add(new Feeder(getName(), 10, 1));
         return good;
-    }
-
-    public static void emptyLine(){
-        System.out.println("*****");
     }
 
     public static ArrayList<BaseHero> unitSpeedSort(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {

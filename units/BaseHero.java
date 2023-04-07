@@ -3,9 +3,11 @@ package IWantToPlayAGame.units;
 import java.util.ArrayList;
 import java.util.Random;
 
+import IWantToPlayAGame.AnsiColors;
+
 public abstract class BaseHero implements GameInterface{
     
-    public float hp, maxHp;
+    protected float hp, maxHp;
     public final String name;
     protected Position position;
     public int x, y;
@@ -13,7 +15,7 @@ public abstract class BaseHero implements GameInterface{
     protected int defeat;
     protected int[] damage;
     protected int accuracy;
-    public int speed;
+    protected int speed;
     protected String state;
 
     public BaseHero(float hp, String name, Position position, int x, int y, int attack, 
@@ -29,17 +31,26 @@ public abstract class BaseHero implements GameInterface{
         this.state = state;
     }
 
-    // @Override
-    // public String toString() {
-    //     return name +
-    //             " H:" + Math.round(hp) +
-    //             " D:" + defense +
-    //             " A:" + attack +
-    //             " Dmg:" + Math.round(Math.abs((damageMin+damageMax)/2)) +
-    //             " " + state;
-    // }
-
     public int[] getCoords() {return new int[]{position.x, position.y};}
+    public int getSpeed() { return speed;}
+    public float getHp() { return hp;}
+
+    protected BaseHero findTarget(ArrayList<BaseHero> enemy){
+        double dist = 1000.0f; 
+        BaseHero target = null;
+        for (int i = 0; i < enemy.size(); i++) {
+            if (enemy.get(i).position.distance(this.position) < dist) {
+                dist = enemy.get(i).position.distance(this.position);
+                target = enemy.get(i);
+            }
+        }
+        return target;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + "  " + AnsiColors.CROSS + "  Здоровье: " + (int)this.hp;
+    }
 
     @Override
     public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {}

@@ -32,18 +32,6 @@ public abstract class Shooter extends BaseHero{
         return flag;
     }  
 
-    private BaseHero findTarget(ArrayList<BaseHero> enemy){
-        double dist = 1000.0f; 
-        BaseHero target = null;
-        for (int i = 0; i < enemy.size(); i++) {
-            if (enemy.get(i).position.distance(this.position) < dist) {
-                dist = enemy.get(i).position.distance(this.position);
-                target = enemy.get(i);
-            }
-        }
-        return target;
-    }
-
     protected void hit(BaseHero target, ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
         if (this.accuracy != 0){
             if(findFeeder(crew) == false) this.arrows -= 1;

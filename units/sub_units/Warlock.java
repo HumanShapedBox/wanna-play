@@ -15,7 +15,7 @@ public class Warlock extends Wizard {
 
     @Override
     public String getInfo() {
-        return name + " - Маг. Здоровье: " + (int)hp;
+        return "Чародей " + name + " Здоровье: " + (int)hp;
     }
 
 }

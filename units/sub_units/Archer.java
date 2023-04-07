@@ -17,13 +17,7 @@ public class Archer extends Shooter{
 
     @Override
     public String getInfo() {
-        return name + " - Лучник. Здоровье: " + (int)hp;
+        return "Лучник " + name + "Здоровье: " + (int)hp;
     }
 
-    // @Override
-    // public void step(ArrayList<BaseHero> enemy) {
-    //     System.out.println("Shooter!");
-    // }
-    
-    
 }

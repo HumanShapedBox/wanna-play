@@ -16,6 +16,6 @@ public class Berserk extends Peasant{
     
     @Override
     public String getInfo() {
-        return name + " - Очень злой крестьянин. Здоровье: " + (int)hp;
+        return "Rage " + name + " Здоровье: " + (int)hp;
     }
 }

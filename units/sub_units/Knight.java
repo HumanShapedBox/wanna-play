@@ -16,7 +16,7 @@ public class Knight extends Warrior{
 
     @Override
     public String getInfo() {
-        return name + " - Рыцарь. Здоровье: " + (int)hp;
+        return "Рыцарь " + name + " Здоровье: " + (int)hp;
     }
     
 }

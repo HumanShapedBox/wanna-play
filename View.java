@@ -10,7 +10,7 @@ public class View {
     private static final String midl10 = formatDiv("d") + String.join("", Collections.nCopies(9, formatDiv("-e"))) + formatDiv("-f");
     private static final String bottom10 = formatDiv("g") + String.join("", Collections.nCopies(9, formatDiv("-h"))) + formatDiv("-i");
     private static void tabSetter(int cnt, int max){
-        int dif = max - cnt + 2;
+        int dif = max - cnt + 5;
         if (dif>0) System.out.printf("%" + dif + "s", ":\t"); else System.out.print(":\t");
     }
     private static String formatDiv(String str) {
@@ -29,12 +29,12 @@ public class View {
         String out = "| ";
         for (BaseHero human: Main.sortedList) {
             if (human.getCoords()[0] == x && human.getCoords()[1] == y){
-                if (human.hp == 0) {
+                if (human.getHp() == 0) {
                     out = "|" + (AnsiColors.ANSI_RED + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                     break;
                 }
-                if (Main.gang.contains(human)) out = "|" + (AnsiColors.ANSI_GREEN + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
-                if (Main.homies.contains(human)) out = "|" + (AnsiColors.ANSI_BLUE + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.gang.contains(human)) out = "|" + (AnsiColors.ANSI_RED + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.homies.contains(human)) out = "|" + (AnsiColors.ANSI_WHITE + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                 break;
             }
         }
@@ -42,19 +42,18 @@ public class View {
     }
     public static void view() {
         if (step == 1 ){
-            System.out.print(AnsiColors.ANSI_RED + "First step" + AnsiColors.ANSI_RESET);
+            System.out.print(AnsiColors.ANSI_CYAN + "First step" + AnsiColors.ANSI_RESET);
         } else {
-            System.out.print(AnsiColors.ANSI_RED + "Step:" + step + AnsiColors.ANSI_RESET);
+            System.out.print(AnsiColors.ANSI_CYAN + "Step:" + step + AnsiColors.ANSI_RESET);
         }
         step++;
         Main.sortedList.forEach((v) -> l[0] = Math.max(l[0], v.toString().length()));
         System.out.print("_".repeat(l[0]*2));
         System.out.println("");
         System.out.print(top10 + "    ");
-        System.out.print("Blue side");
-        //for (int i = 0; i < l[0]-9; i++)
-        System.out.print(" ".repeat(l[0]-9));
-        System.out.println(":\tGreen side");
+        System.out.print(AnsiColors.HEART + " White Fame ");
+        System.out.print(" ".repeat(l[0]-13));
+        System.out.println(":\tRed Power" + AnsiColors.SPADE);
         for (int i = 1; i < 11; i++) {
             System.out.print(getChar(1, i));
         }

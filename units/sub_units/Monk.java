@@ -17,7 +17,7 @@ public class Monk extends Wizard {
 
     @Override
     public String getInfo() {
-        return name + " - Монах. Здоровье: " + (int)hp;
+        return "Монах " + name + " Здоровье: " + (int)hp;
     }
 
 }

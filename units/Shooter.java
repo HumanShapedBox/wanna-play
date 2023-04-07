@@ -3,9 +3,8 @@ package IWantToPlayAGame.units;
 import java.util.ArrayList;
 import java.util.Random;
 
-import IWantToPlayAGame.units.sub_interfaces.Fight;
 
-public abstract class Shooter extends BaseHero implements Fight{
+public abstract class Shooter extends BaseHero{
 
     int arrows, maxArrows;
     int poisonedArrow;
@@ -33,8 +32,7 @@ public abstract class Shooter extends BaseHero implements Fight{
         return flag;
     }  
 
-    @Override
-    public BaseHero findTarget(ArrayList<BaseHero> enemy){
+    private BaseHero findTarget(ArrayList<BaseHero> enemy){
         double dist = 1000.0f; 
         BaseHero target = null;
         for (int i = 0; i < enemy.size(); i++) {
@@ -46,6 +44,13 @@ public abstract class Shooter extends BaseHero implements Fight{
         return target;
     }
 
+    protected void hit(BaseHero target, ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
+        if (this.accuracy != 0){
+            if(findFeeder(crew) == false) this.arrows -= 1;
+                target.hp -= attack; 
+            } else System.out.println(name + " промахнулся"); 
+    }
+
     @Override
     public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
         if ((arrows == 0) || (hp <= 0)){
@@ -53,10 +58,7 @@ public abstract class Shooter extends BaseHero implements Fight{
         }
         BaseHero target = findTarget(enemy);
         System.out.println(name + " нападает на " + target.name);
-        if (this.accuracy != 0){
-            if(findFeeder(crew) == false) this.arrows -= 1;
-                target.hp -= attack; 
-            } else System.out.println(name + " промахнулся"); 
+        hit(target, crew, enemy);
     }
     
 }

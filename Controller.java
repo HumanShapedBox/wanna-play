@@ -6,7 +6,6 @@ import java.util.Comparator;
 import java.util.Random;
 
 import IWantToPlayAGame.units.BaseHero;
-import IWantToPlayAGame.units.Position;
 import IWantToPlayAGame.units.sub_units.Archer;
 import IWantToPlayAGame.units.sub_units.Crossbow;
 import IWantToPlayAGame.units.sub_units.Feeder;
@@ -146,12 +145,4 @@ public class Controller {
         return units.get(0);
     }
 
-    public static ArrayList<BaseHero> getHit(Position target, int damage, int accuracy, ArrayList<BaseHero> enemy){
-        for (int i = 0; i < enemy.size(); i++){
-            if (target == enemy.get(i).position && accuracy != 0 ){
-                enemy.get(i).hp -= damage; 
-            }
-        }
-        return enemy;
-    }
 }

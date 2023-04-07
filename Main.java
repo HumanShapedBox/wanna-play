@@ -13,15 +13,19 @@ public class Main {
         ArrayList<BaseHero> homies = new ArrayList<>();
         ArrayList<BaseHero> gang = new ArrayList<>();
         Controller.chooseYourFighter(homies, gang);
+
         System.out.println("Добряки:");
         homies.forEach(n -> System.out.println(n.getInfo()));
         Controller.emptyLine();
+
         System.out.println("Плохиши:");
         gang.forEach(n -> System.out.println(n.getInfo()));
         Controller.emptyLine();
+
         BaseHero attacker = Controller.attacker(gang);
         attacker.step(gang, homies);
         Controller.emptyLine();
+        
         homies.forEach(n -> System.out.println(n.getInfo()));
         // Controller.emptyLine();
         // gang.forEach(n -> System.out.println(n.getInfo()));

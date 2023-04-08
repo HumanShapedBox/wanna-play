@@ -8,7 +8,7 @@ import IWantToPlayAGame.AnsiColors;
 public abstract class BaseHero implements GameInterface{
     
     protected float hp, maxHp;
-    public final String name;
+    public String name;
     protected Position position;
     public int x, y;
     protected int attack;
@@ -34,6 +34,13 @@ public abstract class BaseHero implements GameInterface{
     public int[] getCoords() {return new int[]{position.x, position.y};}
     public int getSpeed() { return speed;}
     public float getHp() { return hp;}
+
+    protected void lifeChecker(){
+        if (hp <= 0){
+            state = "Dead";
+            speed = 0;
+        }
+    }
 
     protected BaseHero findTarget(ArrayList<BaseHero> enemy){
         double dist = 1000.0f; 

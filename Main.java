@@ -20,6 +20,7 @@ public class Main {
         View.view();
         while (true) {
             sortedList = Controller.unitSpeedSort(homies, gang);
+            Controller.game(homies, gang, sortedList);
             View.view();
             Main.sc.nextLine();
         }

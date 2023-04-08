@@ -35,7 +35,7 @@ public abstract class BaseHero implements GameInterface{
     public int getSpeed() { return speed;}
     public float getHp() { return hp;}
 
-    protected void lifeChecker(){
+    public void lifeChecker(){
         if (hp <= 0){
             state = "Dead";
             speed = 0;
@@ -46,7 +46,7 @@ public abstract class BaseHero implements GameInterface{
         double dist = 1000.0f; 
         BaseHero target = null;
         for (int i = 0; i < enemy.size(); i++) {
-            if (enemy.get(i).position.distance(this.position) < dist) {
+            if (enemy.get(i).position.distance(this.position) < dist && enemy.get(i).hp > 0) {
                 dist = enemy.get(i).position.distance(this.position);
                 target = enemy.get(i);
             }
@@ -56,7 +56,8 @@ public abstract class BaseHero implements GameInterface{
 
     @Override
     public String toString() {
-        return this.name + "  " + AnsiColors.CROSS + "  Здоровье: " + (int)this.hp;
+        if (hp <= 0) {return AnsiColors.DEAD;
+        }else return this.name + "  " + AnsiColors.CROSS + "  Здоровье: " + (int)this.hp;
     }
 
     @Override

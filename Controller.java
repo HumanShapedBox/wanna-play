@@ -25,7 +25,6 @@ public class Controller {
         }
     }
 
-
     public static void chooseYourFighter(ArrayList<BaseHero> good, ArrayList<BaseHero> bad) {
         System.out.println("Введите '1' для случайной генерации персонажей\n"
                 + "Введите '2' для получения основного состава игроков");
@@ -116,6 +115,9 @@ public class Controller {
         ArrayList<BaseHero> sortedList = new ArrayList<>();
         sortedList.addAll(crew);
         sortedList.addAll(enemy);
+        for (BaseHero human : sortedList) {
+            human.lifeChecker();
+        }
         Collections.sort(
                 sortedList,
                 new Comparator<BaseHero>() {

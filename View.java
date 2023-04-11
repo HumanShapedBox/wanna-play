@@ -33,8 +33,8 @@ public class View {
                     out = "|" + (AnsiColors.ANSI_RED + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                     break;
                 }
-                if (Main.gang.contains(human)) out = "|" + (AnsiColors.ANSI_RED + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
-                if (Main.homies.contains(human)) out = "|" + (AnsiColors.ANSI_WHITE + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.red.contains(human)) out = "|" + (AnsiColors.ANSI_RED + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.white.contains(human)) out = "|" + (AnsiColors.ANSI_WHITE + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                 break;
             }
         }
@@ -58,9 +58,9 @@ public class View {
             System.out.print(getChar(1, i));
         }
         System.out.print("|    ");
-        System.out.print(Main.homies.get(0));
-        tabSetter(Main.homies.get(0).toString().length(), l[0]);
-        System.out.println(Main.gang.get(0));
+        System.out.print(Main.white.get(0));
+        tabSetter(Main.white.get(0).toString().length(), l[0]);
+        System.out.println(Main.red.get(0));
         System.out.println(midl10);
 
         for (int i = 2; i < 10; i++) {
@@ -68,18 +68,18 @@ public class View {
                 System.out.print(getChar(i, j));
             }
             System.out.print("|    ");
-            System.out.print(Main.homies.get(i-1));
-            tabSetter(Main.homies.get(i-1).toString().length(), l[0]);
-            System.out.println(Main.gang.get(i-1));
+            System.out.print(Main.white.get(i-1));
+            tabSetter(Main.white.get(i-1).toString().length(), l[0]);
+            System.out.println(Main.red.get(i-1));
             System.out.println(midl10);
         }
         for (int j = 1; j < 11; j++) {
             System.out.print(getChar(10, j));
         }
         System.out.print("|    ");
-        System.out.print(Main.homies.get(9));
-        tabSetter(Main.homies.get(9).toString().length(), l[0]);
-        System.out.println(Main.gang.get(9));
+        System.out.print(Main.white.get(9));
+        tabSetter(Main.white.get(9).toString().length(), l[0]);
+        System.out.println(Main.red.get(9));
         System.out.println(bottom10);
     }
 }

@@ -8,15 +8,15 @@ public class Game {
 
     public static void game(ArrayList<BaseHero> good, ArrayList<BaseHero> bad, ArrayList<BaseHero> sortedList) {
         // Boolean timeToGiveUp;
-        for (BaseHero human : sortedList) {
-            if (good.contains(human))
-                human.step(good, bad);
+        for (BaseHero unit : sortedList) {
+            if (good.contains(unit))
+                unit.step(good, bad);
                 // timeToGiveUp = endGame(bad);
                 // if (timeToGiveUp == true) {
                 //     System.out.println("GAMEOVER");
                 //     break;}
             else
-                human.step(bad, good);
+                unit.step(bad, good);
                 // timeToGiveUp = endGame(good);
                 // if (timeToGiveUp == true) {
                 //     System.out.println("GAMEOVER");

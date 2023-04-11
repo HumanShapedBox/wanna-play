@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import IWantToPlayAGame.units.BaseHero;
+import IWantToPlayAGame.unt.Game;
+import IWantToPlayAGame.unt.NewHeroes;
 
 public class Main {
 
@@ -15,12 +17,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Controller.chooseYourFighter(homies, gang);
-        sortedList.addAll(Controller.unitSpeedSort(homies, gang));
+        NewHeroes.units(homies, gang);
+        sortedList.addAll(NewHeroes.unitSort(homies, gang));
         View.view();
         while (true) {
-            sortedList = Controller.unitSpeedSort(homies, gang);
-            Controller.game(homies, gang, sortedList);
+            sortedList = NewHeroes.unitSort(homies, gang);
+            Game.game(homies, gang, sortedList);
             View.view();
             Main.sc.nextLine();
         }

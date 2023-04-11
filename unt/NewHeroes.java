@@ -1,10 +1,12 @@
-package IWantToPlayAGame;
+package IWantToPlayAGame.unt;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
+import IWantToPlayAGame.Main;
+import IWantToPlayAGame.Names;
 import IWantToPlayAGame.units.BaseHero;
 import IWantToPlayAGame.units.sub_units.Archer;
 import IWantToPlayAGame.units.sub_units.Crossbow;
@@ -14,18 +16,9 @@ import IWantToPlayAGame.units.sub_units.Monk;
 import IWantToPlayAGame.units.sub_units.Thug;
 import IWantToPlayAGame.units.sub_units.Warlock;
 
-public class Controller {
-
-    public static void game(ArrayList<BaseHero> good, ArrayList<BaseHero> bad, ArrayList<BaseHero> sortedList) {
-        for (BaseHero human : sortedList) {
-            if (good.contains(human))
-                human.step(good, bad);
-            else
-                human.step(bad, good);
-        }
-    }
-
-    public static void chooseYourFighter(ArrayList<BaseHero> good, ArrayList<BaseHero> bad) {
+public class NewHeroes {
+    
+    public static void units(ArrayList<BaseHero> good, ArrayList<BaseHero> bad) {
         System.out.println("Введите '1' для случайной генерации персонажей\n"
                 + "Введите '2' для получения основного состава игроков");
         
@@ -41,6 +34,30 @@ public class Controller {
 
     public static String getName(){
         return Names.values()[new Random().nextInt(Names.values().length)].toString();
+    }
+
+    public static ArrayList<BaseHero> unitSort(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {
+        ArrayList<BaseHero> sortedList = new ArrayList<>();
+        sortedList.addAll(crew);
+        sortedList.addAll(enemy);
+        for (BaseHero human : sortedList) {
+            human.lifeChecker();
+        }
+        Collections.sort(
+                sortedList,
+                new Comparator<BaseHero>() {
+                    public int compare(BaseHero t0, BaseHero t1) {
+                        if (t0.getSpeed() > t1.getSpeed())
+                            return -1;
+                        if (t0.getSpeed() < t1.getSpeed())
+                            return 1;
+                        if(t0.getSpeed() == t1.getSpeed()){
+                            return (int)t1.getHp() - (int)t0.getHp();
+                        }
+                        return 0;
+                    }
+                });
+        return sortedList;
     }
 
     private static ArrayList<BaseHero> randomBad(ArrayList<BaseHero> bad) {
@@ -110,47 +127,4 @@ public class Controller {
         good.add(new Feeder(getName(), 10, 1));
         return good;
     }
-
-    public static ArrayList<BaseHero> unitSpeedSort(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {
-        ArrayList<BaseHero> sortedList = new ArrayList<>();
-        sortedList.addAll(crew);
-        sortedList.addAll(enemy);
-        for (BaseHero human : sortedList) {
-            human.lifeChecker();
-        }
-        Collections.sort(
-                sortedList,
-                new Comparator<BaseHero>() {
-                    public int compare(BaseHero t0, BaseHero t1) {
-                        if (t0.getSpeed() > t1.getSpeed())
-                            return -1;
-                        if (t0.getSpeed() < t1.getSpeed())
-                            return 1;
-                        if(t0.getSpeed() == t1.getSpeed()){
-                            return (int)t1.getHp() - (int)t0.getHp();
-                        }
-                        return 0;
-                    }
-                });
-        return sortedList;
-    }
-    
-    public static BaseHero attacker(ArrayList<BaseHero> units){
-        Collections.sort(
-                units,
-                new Comparator<BaseHero>() {
-                    public int compare(BaseHero t0, BaseHero t1) {
-                        if (t0.getSpeed() > t1.getSpeed())
-                            return -1;
-                        if (t0.getSpeed() < t1.getSpeed())
-                            return 1;
-                        if(t0.getSpeed() == t1.getSpeed()){
-                            return (int)t1.getHp() - (int)t0.getHp();
-                        }
-                        return 0;
-                    }
-                });
-        return units.get(0);
-    }
-
 }

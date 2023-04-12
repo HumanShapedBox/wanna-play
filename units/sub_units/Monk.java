@@ -2,6 +2,7 @@ package IWantToPlayAGame.units.sub_units;
 
 import java.util.Random;
 
+import IWantToPlayAGame.AnsiColors;
 import IWantToPlayAGame.units.Position;
 import IWantToPlayAGame.units.Wizard;
 
@@ -17,7 +18,8 @@ public class Monk extends Wizard {
 
     @Override
     public String getInfo() {
-        return "Монах " + name + " Здоровье: " + (int)hp;
+        if (hp <= 0) {return AnsiColors.DEAD;
+        }else return "Монах " + name + " Здоровье: " + (int)hp;
     }
 
 }

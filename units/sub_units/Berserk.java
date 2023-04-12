@@ -2,6 +2,7 @@ package IWantToPlayAGame.units.sub_units;
 
 import java.util.Random;
 
+import IWantToPlayAGame.AnsiColors;
 import IWantToPlayAGame.units.Peasant;
 import IWantToPlayAGame.units.Position;
 
@@ -16,6 +17,7 @@ public class Berserk extends Peasant{
     
     @Override
     public String getInfo() {
-        return "Rage " + name + " Здоровье: " + (int)hp;
+        if (hp <= 0) {return AnsiColors.DEAD;
+        }else return "Rage " + name + " Здоровье: " + (int)hp;
     }
 }

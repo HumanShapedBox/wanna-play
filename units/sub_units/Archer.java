@@ -3,6 +3,7 @@ package IWantToPlayAGame.units.sub_units;
 // import java.util.ArrayList;
 import java.util.Random;
 
+import IWantToPlayAGame.AnsiColors;
 import IWantToPlayAGame.units.Position;
 import IWantToPlayAGame.units.Shooter;
 
@@ -17,7 +18,8 @@ public class Archer extends Shooter{
 
     @Override
     public String getInfo() {
-        return "Лучник " + name + "Здоровье: " + (int)hp;
+        if (hp <= 0) {return AnsiColors.DEAD;
+        }else return "Лучник " + name + "Здоровье: " + (int)hp;
     }
 
 }

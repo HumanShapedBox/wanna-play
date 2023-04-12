@@ -2,6 +2,7 @@ package IWantToPlayAGame.units.sub_units;
 
 import java.util.Random;
 
+import IWantToPlayAGame.AnsiColors;
 import IWantToPlayAGame.units.Position;
 import IWantToPlayAGame.units.Warrior;
 
@@ -16,7 +17,8 @@ public class Knight extends Warrior{
 
     @Override
     public String getInfo() {
-        return "Рыцарь " + name + " Здоровье: " + (int)hp;
+        if (hp <= 0) {return AnsiColors.DEAD;
+        }else return "Рыцарь " + name + " Здоровье: " + (int)hp;
     }
     
 }

@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import IWantToPlayAGame.units.BaseHero;
 import IWantToPlayAGame.unt.Game;
-import IWantToPlayAGame.unt.NewHeroes;
 
 public class Main {
 
@@ -17,14 +16,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        NewHeroes.units(white, red);
-        sortedList.addAll(NewHeroes.unitSort(white, red));
-        View.view();
-        while (true) {
-            sortedList = NewHeroes.unitSort(white, red);
-            Game.game(white, red, sortedList);
-            View.view();
-            Main.sc.nextLine();
-        }
+        Game.game(white, red, sortedList);
     }
 }

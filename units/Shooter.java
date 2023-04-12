@@ -28,7 +28,7 @@ public abstract class Shooter extends BaseHero{
         return flag;
     }  
 
-    protected void hit(BaseHero target, ArrayList<BaseHero> crew){
+    private void hit(BaseHero target, ArrayList<BaseHero> crew){
         if (this.accuracy != 0){
             if(findFeeder(crew) == false) this.arrows -= 1;
                 target.hp -= attack; 

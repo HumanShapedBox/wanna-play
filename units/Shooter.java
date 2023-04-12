@@ -18,10 +18,6 @@ public abstract class Shooter extends BaseHero{
         this.poisonedArrow = poisonedArrow;
     }
 
-    protected void shoot(){
-        System.out.println("Shoot!");
-    }
-
     private Boolean findFeeder(ArrayList<BaseHero> units){
         Boolean flag = false;
         for(int i = 0; i < units.size(); i++){
@@ -32,7 +28,7 @@ public abstract class Shooter extends BaseHero{
         return flag;
     }  
 
-    protected void hit(BaseHero target, ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
+    protected void hit(BaseHero target, ArrayList<BaseHero> crew){
         if (this.accuracy != 0){
             if(findFeeder(crew) == false) this.arrows -= 1;
                 target.hp -= attack; 
@@ -41,12 +37,10 @@ public abstract class Shooter extends BaseHero{
 
     @Override
     public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
-        if ((arrows == 0) || (hp <= 0)){
-            return;
-        }
+        if ((arrows == 0) || (hp <= 0)){return;}
         BaseHero target = findTarget(enemy);
         System.out.println(name + " нападает на " + target.name);
-        hit(target, crew, enemy);
+        hit(target, crew);
     }
     
 }

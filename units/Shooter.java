@@ -31,15 +31,14 @@ public abstract class Shooter extends BaseHero{
     private void hit(BaseHero target, ArrayList<BaseHero> crew){
         if (this.accuracy != 0){
             if(findFeeder(crew) == false) this.arrows -= 1;
-                target.hp -= attack; 
-            } else System.out.println(name + " промахнулся"); 
+            target.hp -= attack; 
+        } else return; 
     }
 
     @Override
     public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
         if ((arrows == 0) || (hp <= 0)){return;}
         BaseHero target = findTarget(enemy);
-        System.out.println(name + " нападает на " + target.name);
         hit(target, crew);
     }
     

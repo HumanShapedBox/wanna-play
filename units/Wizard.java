@@ -1,5 +1,6 @@
 package IWantToPlayAGame.units;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Wizard extends BaseHero {
@@ -14,5 +15,32 @@ public abstract class Wizard extends BaseHero {
         this.trick = trick;
         this.heal = heal;
         this.power = power;
+    }
+
+    private void heal(BaseHero target){
+        if (this.accuracy != 0){
+            target.hp += attack;
+            magic -= attack;
+        } else return; 
+    }
+
+    @Override
+    public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
+        if (hp <= 0){return;}
+        BaseHero patient = findSick(crew);
+        if(patient == null){return;}
+        heal(patient);
+    }
+
+    protected BaseHero findSick(ArrayList<BaseHero> crew) {
+        int minHp = (int)maxHp;
+        BaseHero target = null;
+        for (int i = 0; i < crew.size(); i++) {
+            if (crew.get(i).hp < minHp) {
+                minHp = (int)crew.get(i).getHp();
+                target = crew.get(i);
+            }
+        }
+        return target;
     }
 }

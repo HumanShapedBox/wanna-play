@@ -16,6 +16,7 @@ public class AnsiColors {
     public static final String CROSS = "\u2613";
     public static final String DEAD = "\u2628";
 
+
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";

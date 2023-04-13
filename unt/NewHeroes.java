@@ -127,4 +127,14 @@ public class NewHeroes {
         good.add(new Feeder(getName(), 10, 1));
         return good;
     }
+
+    // private static Boolean berserkMode(ArrayList<BaseHero> units){
+    //     Boolean flag = false;
+    //     int counter = 0;
+    //     for (BaseHero unit : units) {
+    //         if(unit.getState().equals("stand") && unit.getSpeed() > 0) counter += 1;
+    //     }
+    //     if(counter == 0) flag = true;
+    //     return flag;
+    // }
 }

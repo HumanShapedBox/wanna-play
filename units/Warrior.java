@@ -18,25 +18,39 @@ public abstract class Warrior extends BaseHero{
 
     private Boolean stop(Position target){
         Boolean flag = false;
-        if(this.position.distance(target) < 2) flag = true;
+        if(position.distance(target) < 2) {flag = true;}
         return flag;
     }
 
-    private void move(Position target){
+    // private Boolean crewChecker(Position unit, ArrayList<BaseHero> myCrew){
+    //     Boolean flag = true;
+    //     for (BaseHero homie : myCrew) {
+    //         if(homie.position.equals(unit)) flag = false;
+    //     }
+    //     return flag;
+    // }
+
+    private void move(Position target, ArrayList<BaseHero> myCrew) {
+        if (stop(target) == true) {return;}
+
         int diffX = target.x - x;
         int diffY = target.y - y;
 
-        if (stop(target) == true) {return;}
-
-        if (Math.abs(diffX) > Math.abs(diffY))
-            position.x += (int)Math.signum(diffX);
-        else position.y += (int)Math.signum(diffY);
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            position.x += (int) Math.signum(diffX);
+            // if (crewChecker(position, myCrew) == false)
+            //     position.y += 1;
+        } else {
+            position.y += (int) Math.signum(diffY);
+            // if (crewChecker(position, myCrew) == false)
+            //     position.x += 1;
+        }
     }
 
     private void hit(BaseHero target) {
-        if (this.accuracy != 0 && target.position.distance(this.position) < 2) {
+        if (this.accuracy != 0 && this.position.distance(target.position) < 2) 
             target.hp -= attack;
-        } else return;
+        else return;
     }
 
     @Override
@@ -44,8 +58,9 @@ public abstract class Warrior extends BaseHero{
         if (hp <= 0){return;}
         BaseHero target = findTarget(enemy);
         Position targetPosition = target.position;
-        move(targetPosition);
+        move(targetPosition, crew);
         hit(target);
     }
+
 
 }

@@ -32,9 +32,9 @@ public abstract class BaseHero implements GameInterface{
     }
 
     public int[] getCoords() {return new int[]{position.x, position.y};}
-    public int getSpeed() { return speed;}
-    public float getHp() { return hp;}
-
+    public int getSpeed() {return speed;}
+    public float getHp() {return hp;}
+    public String getState() {return state;}
     public void lifeChecker(){
         if (hp <= 0){
             state = "Dead";

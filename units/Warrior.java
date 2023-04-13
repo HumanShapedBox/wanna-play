@@ -22,13 +22,13 @@ public abstract class Warrior extends BaseHero{
         return flag;
     }
 
-    // private Boolean crewChecker(Position unit, ArrayList<BaseHero> myCrew){
-    //     Boolean flag = true;
-    //     for (BaseHero homie : myCrew) {
-    //         if(homie.position.equals(unit)) flag = false;
-    //     }
-    //     return flag;
-    // }
+    private Boolean crewChecker(Position unit, ArrayList<BaseHero> myCrew){
+        Boolean flag = false;
+        for (BaseHero homie : myCrew) {
+            if(homie.position.equals(unit)) flag = true;
+        }
+        return flag;
+    }
 
     private void move(Position target, ArrayList<BaseHero> myCrew) {
         if (stop(target) == true) {return;}
@@ -38,12 +38,12 @@ public abstract class Warrior extends BaseHero{
 
         if (Math.abs(diffX) > Math.abs(diffY)) {
             position.x += (int) Math.signum(diffX);
-            // if (crewChecker(position, myCrew) == false)
-            //     position.y += 1;
+            if (crewChecker(position, myCrew) == true)
+                position.y += 1;
         } else {
             position.y += (int) Math.signum(diffY);
-            // if (crewChecker(position, myCrew) == false)
-            //     position.x += 1;
+            if (crewChecker(position, myCrew) == false)
+                position.x += 1;
         }
     }
 

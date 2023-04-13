@@ -25,14 +25,24 @@ public abstract class Wizard extends BaseHero {
     }
 
     @Override
-    public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy){
-        if (hp <= 0){return;}
-        BaseHero patient = findSick(crew);
-        if(patient == null){return;}
-        heal(patient);
+    public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {
+        if (hp <= 0) {return;}
+        
+        if (magic <= 0){
+            magic = maxMagic;
+            return;}
+
+        if (timeToFight(crew) == false) {
+            BaseHero patient = findSick(crew);
+            if (patient == null) {return;}
+            heal(patient);
+        } else {
+            BaseHero target = findTarget(enemy);
+            hit(target);
+        }
     }
 
-    protected BaseHero findSick(ArrayList<BaseHero> crew) {
+    private BaseHero findSick(ArrayList<BaseHero> crew) {
         int minHp = (int)maxHp;
         BaseHero target = null;
         for (int i = 0; i < crew.size(); i++) {
@@ -43,4 +53,19 @@ public abstract class Wizard extends BaseHero {
         }
         return target;
     }
+
+    private Boolean timeToFight(ArrayList<BaseHero> crew){
+        Boolean flag = false;
+        int counter = activeUnits(crew);
+        if (counter == 0) flag = true;
+        return flag;
+    }
+
+    private void hit(BaseHero target){
+        if (this.accuracy != 0){
+            target.hp -= attack;
+            magic -= attack;
+        } else return; 
+    }
+
 }

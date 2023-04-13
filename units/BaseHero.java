@@ -63,4 +63,11 @@ public abstract class BaseHero implements GameInterface{
     @Override
     public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {}
 
+    protected int activeUnits(ArrayList<BaseHero> crew){
+        int counter = 0;
+        for (BaseHero human : crew) {
+            if(human.speed > 0) counter++;
+        }
+        return counter;
+    }
 }

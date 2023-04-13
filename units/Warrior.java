@@ -33,8 +33,8 @@ public abstract class Warrior extends BaseHero{
     private void move(Position target, ArrayList<BaseHero> myCrew) {
         if (stop(target) == true) {return;}
 
-        int diffX = target.x - x;
-        int diffY = target.y - y;
+        int diffX = target.x - position.x;
+        int diffY = target.y - position.y;
 
         if (Math.abs(diffX) > Math.abs(diffY)) {
             position.x += (int) Math.signum(diffX);

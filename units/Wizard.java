@@ -36,7 +36,7 @@ public abstract class Wizard extends BaseHero {
         int minHp = (int)maxHp;
         BaseHero target = null;
         for (int i = 0; i < crew.size(); i++) {
-            if (crew.get(i).hp < minHp) {
+            if (crew.get(i).hp > 0 && crew.get(i).hp < minHp) {
                 minHp = (int)crew.get(i).getHp();
                 target = crew.get(i);
             }

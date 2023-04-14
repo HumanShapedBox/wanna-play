@@ -16,7 +16,7 @@ public class Game {
             nextMove(good, bad, unitedList);
             View.view();
             if(endGame(good) == true || endGame(bad) == true){
-                System.out.println("GAMEOVER");
+                System.out.println("It's over. Are you happy now?");
                 return;
             }
             Main.sc.nextLine();

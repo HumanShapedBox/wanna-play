@@ -19,8 +19,8 @@ public abstract class Wizard extends BaseHero {
 
     private void heal(BaseHero target){
         if (this.accuracy != 0){
-            target.hp += attack;
-            magic -= attack;
+            target.hp += heal;
+            magic -= power;
         } else return; 
     }
 
@@ -54,17 +54,10 @@ public abstract class Wizard extends BaseHero {
         return target;
     }
 
-    private Boolean timeToFight(ArrayList<BaseHero> crew){
-        Boolean flag = false;
-        int counter = activeUnits(crew);
-        if (counter == 0) flag = true;
-        return flag;
-    }
-
     private void hit(BaseHero target){
         if (this.accuracy != 0){
             target.hp -= attack;
-            magic -= attack;
+            magic -= power;
         } else return; 
     }
 

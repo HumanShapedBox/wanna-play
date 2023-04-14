@@ -1,8 +1,10 @@
 package IWantToPlayAGame.units.sub_units;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import IWantToPlayAGame.AnsiColors;
+import IWantToPlayAGame.units.BaseHero;
 import IWantToPlayAGame.units.Peasant;
 import IWantToPlayAGame.units.Position;
 
@@ -19,6 +21,13 @@ public class Feeder extends Peasant{
     public String getInfo() {
         if (hp <= 0) {return AnsiColors.DEAD;
         }else return "Крестьянин " + name + " Здоровье: " + (int)hp;
+    }
+
+    public Boolean berserkMode(ArrayList<BaseHero> crew){
+        Boolean flag = false;
+        int counter = activeUnits(crew);
+        if (counter == 0) flag = true;
+        return flag;
     }
     
 }

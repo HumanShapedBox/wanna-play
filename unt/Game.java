@@ -16,7 +16,9 @@ public class Game {
             nextMove(good, bad, unitedList);
             View.view();
             if(endGame(good) == true || endGame(bad) == true){
-                System.out.println("It's over. Are you happy now?");
+                NewHeroes.itsAlive(unitedList);
+                View.view();
+                System.out.println("Thanks guys, see you next time!");
                 return;
             }
             Main.sc.nextLine();

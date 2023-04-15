@@ -128,5 +128,9 @@ public class NewHeroes {
         return good;
     }
 
-
+    public static void itsAlive(ArrayList<BaseHero> units){
+        for (BaseHero human : units) {
+            human.setHp(100);
+        }
+    }
 }

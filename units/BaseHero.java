@@ -78,4 +78,7 @@ public abstract class BaseHero implements GameInterface{
         return flag;
     }
 
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
 }

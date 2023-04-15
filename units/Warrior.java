@@ -62,5 +62,4 @@ public abstract class Warrior extends BaseHero{
         hit(target);
     }
 
-
 }

@@ -60,9 +60,6 @@ public abstract class BaseHero implements GameInterface{
         }else return this.name + "  " + AnsiColors.CROSS + "  Здоровье: " + (int)this.hp;
     }
 
-    @Override
-    public void step(ArrayList<BaseHero> crew, ArrayList<BaseHero> enemy) {}
-
     protected int activeUnits(ArrayList<BaseHero> crew){
         int counter = 0;
         for (BaseHero human : crew) {
@@ -72,6 +69,9 @@ public abstract class BaseHero implements GameInterface{
     }
 
     protected Boolean timeToFight(ArrayList<BaseHero> crew){
+        for (BaseHero human : crew) {
+            human.lifeChecker();
+        }
         Boolean flag = false;
         int counter = activeUnits(crew);
         if (counter == 0) flag = true;
